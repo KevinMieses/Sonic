@@ -23,3 +23,23 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('checkCSSAttrs', (kevin,NavItem) => {
+    cy.get('#tabs-1--tab-'+[kevin])
+    .should('be.visible')
+    .should('have.text', NavItem)
+    .should('have.css', 'font-family', '"Nunito Sans"')
+    .should('have.css', 'color', 'rgba(255, 255, 255, 0.92)')
+    .should('have.css', 'background-color', 'rgba(0, 0, 0, 0)')
+})
+
+Cypress.Commands.add('checkCSSAttrs2', (index,NavItem) => {
+cy.get('#tabs-1--tab-'+[index])
+             .click()
+            .should('be.visible')
+            .should('have.text', NavItem)
+            .should('have.css', 'font-family', '"Nunito Sans"')
+            .should('have.css', 'color', 'rgb(214, 216, 218)')
+            .should('have.css', 'background-color', 'rgba(0, 0, 0, 0)')
+})
+
